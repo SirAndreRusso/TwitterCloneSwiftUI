@@ -18,6 +18,7 @@
 		B4BF540528F564C60019ED81 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF540428F564C60019ED81 /* NotificationsView.swift */; };
 		B4BF540728F564E90019ED81 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF540628F564E90019ED81 /* MessagesView.swift */; };
 		B4C6BA1928F5694700344499 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B4C6BA1828F5694700344499 /* .gitignore */; };
+		B4C6BA1D28F579F400344499 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6BA1C28F579F400344499 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B4BF540428F564C60019ED81 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		B4BF540628F564E90019ED81 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		B4C6BA1828F5694700344499 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B4C6BA1C28F579F400344499 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +198,25 @@
 		B4BF540128F5636A0019ED81 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B4C6BA1B28F579DA00344499 /* Views */,
+				B4C6BA1A28F579CB00344499 /* ViewModels */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		B4C6BA1A28F579CB00344499 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B4C6BA1B28F579DA00344499 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4C6BA1C28F579F400344499 /* ProfileView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4BF540728F564E90019ED81 /* MessagesView.swift in Sources */,
+				B4C6BA1D28F579F400344499 /* ProfileView.swift in Sources */,
 				B4BF53E028F5528B0019ED81 /* ContentView.swift in Sources */,
 				B4BF53FA28F557090019ED81 /* TweetRowView.swift in Sources */,
 				B4BF53F728F555680019ED81 /* FeedView.swift in Sources */,
