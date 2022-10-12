@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.presentationMode) var presentationsMode
+    @State private var selectionFilter: TweetFilterVM = .tweets
+    @Namespace var animation
     var body: some View {
         VStack(alignment: .leading) {
             headerView
             actionButtons
             userInfoDetails
+            tweetFilterBar
+            tweetsView
+            
             Spacer()
         }
     }
@@ -33,7 +39,7 @@ extension ProfileView {
                 .ignoresSafeArea()
             VStack{
                 Button {
-                    
+                    presentationsMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "arrow.left")
                         .resizable()
@@ -127,5 +133,51 @@ extension ProfileView {
             .padding(.vertical)
         }
         .padding(.horizontal)
+    }
+    
+    //MARK: - Tweet filter bar
+    
+    var tweetFilterBar: some View {
+        HStack {
+            ForEach(TweetFilterVM.allCases, id: \.rawValue) { item in
+                VStack {
+                    Text(item.title)
+                        .font(.subheadline)
+                        .fontWeight(selectionFilter == item ? .semibold : .regular)
+                        .foregroundColor(selectionFilter == item ? .black : .gray)
+                
+                if selectionFilter == item {
+                    Capsule()
+                        .foregroundColor(Color(.systemBlue))
+                        .frame(height: 3)
+                        .matchedGeometryEffect(id: "filter", in:   animation)
+                } else {
+                    Capsule()
+                        .foregroundColor(Color(.clear))
+                        .frame(height: 3)
+                }
+            }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        self.selectionFilter = item
+                    }
+                }
+            }
+        }
+        .overlay(Divider().offset(y: 16))
+    }
+    
+    //MARK: - Tweets view
+    
+    var tweetsView: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(0...9, id: \.self) { _ in
+                    TweetRowView()
+                        .padding()
+                    
+                }
+            }
+        }
     }
 }
