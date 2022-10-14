@@ -12,8 +12,9 @@ struct TwitterCloneSwiftUiApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
-                SideMenuView()
+//                ContentView()
+//                SideMenuView()
+                LoginView()
             }
             
         }
