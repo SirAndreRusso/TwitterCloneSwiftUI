@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomInputFields: View {
     let imageName: String
     let placeholderText: String
+    var isSecureField: Bool?
     @Binding var text: String
     var body: some View {
         VStack {
@@ -19,7 +20,11 @@ struct CustomInputFields: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .foregroundColor(Color(.gray))
-                TextField(placeholderText, text: $text)
+                if isSecureField ?? false {
+                    SecureField(placeholderText, text: $text)
+                } else {
+                    TextField(placeholderText, text: $text)
+                }
             }
             Divider()
                 .background(Color(.darkGray))
@@ -29,6 +34,9 @@ struct CustomInputFields: View {
 
 struct CustomInputFields_Previews: PreviewProvider {
     static var previews: some View {
-        CustomInputFields(imageName: "envelope", placeholderText: "Email", text: .constant(""))
+        CustomInputFields(imageName: "envelope",
+                          placeholderText: "Email",
+                          isSecureField: false,
+                          text: .constant(""))
     }
 }
