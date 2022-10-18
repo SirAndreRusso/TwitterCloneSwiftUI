@@ -10,6 +10,9 @@ import Firebase
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
+    @Published var didAuthenticateUser = false
+    private var tempUserSession: FirebaseAuth.User?
+    
     init() {
         self.userSession = Auth.auth().currentUser
         print("Debug: usersession is: \(self.userSession?.uid)")
@@ -34,7 +37,7 @@ class AuthViewModel: ObservableObject {
                 return
             }
             guard let user = result?.user else {return}
-            self.userSession = user
+            self.tempUserSession = user
             
             let data = ["email": email,
                         "username": username.lowercased(),
@@ -44,6 +47,7 @@ class AuthViewModel: ObservableObject {
                 .document(user.uid)
                 .setData(data) { error in
                     if error == nil {
+                        self.didAuthenticateUser = true
                         print("Debug: data uploaded")
                     } else {
                         return
@@ -55,5 +59,20 @@ class AuthViewModel: ObservableObject {
     func signOut() {
         userSession = nil
         try? Auth.auth().signOut()
+    }
+    
+    func uploadProfileImage(_ image: UIImage) {
+        guard let uid = tempUserSession?.uid else {return}
+        ImageUploader.uploadImage(image: image) { profileImageURL in
+            Firestore.firestore().collection("users")
+                .document(uid)
+                .updateData(["ProfileImageURL" : profileImageURL]) { error in
+                    guard error == nil else {
+                        print("Debug: Can't update data with profileImageURL \(error!.localizedDescription)")
+                        return
+                    }
+                    self.userSession = self.tempUserSession
+                }
+        }
     }
 }

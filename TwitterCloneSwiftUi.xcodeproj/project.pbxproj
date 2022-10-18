@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B466831028FD429E003174DE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B466830F28FD429E003174DE /* AuthViewModel.swift */; };
+		B466831228FE8C3B003174DE /* ProfilePhotoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B466831128FE8C3A003174DE /* ProfilePhotoSelectionView.swift */; };
+		B466831528FEA279003174DE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B466831428FEA279003174DE /* ImagePicker.swift */; };
 		B490B1FD28FCA29000844563 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = B490B1FC28FCA29000844563 /* OrderedCollections */; };
 		B490B20028FD2F9500844563 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B490B1FF28FD2F9500844563 /* FirebaseAuth */; };
 		B490B20228FD2F9500844563 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B490B20128FD2F9500844563 /* FirebaseFirestore */; };
 		B490B20428FD2F9500844563 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B490B20328FD2F9500844563 /* FirebaseFirestoreSwift */; };
 		B490B20628FD2F9500844563 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B490B20528FD2F9500844563 /* FirebaseStorage */; };
+		B498DEBB28FEC9C6001A5E2E /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B498DEBA28FEC9C6001A5E2E /* ImageUploader.swift */; };
 		B4BF53DE28F5528B0019ED81 /* TwitterCloneSwiftUiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF53DD28F5528B0019ED81 /* TwitterCloneSwiftUiApp.swift */; };
 		B4BF53E028F5528B0019ED81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF53DF28F5528B0019ED81 /* ContentView.swift */; };
 		B4BF53E228F5528C0019ED81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4BF53E128F5528C0019ED81 /* Assets.xcassets */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		B466830F28FD429E003174DE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B466831128FE8C3A003174DE /* ProfilePhotoSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectionView.swift; sourceTree = "<group>"; };
+		B466831428FEA279003174DE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B498DEBA28FEC9C6001A5E2E /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		B4BF53DA28F5528B0019ED81 /* TwitterCloneSwiftUi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterCloneSwiftUi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4BF53DD28F5528B0019ED81 /* TwitterCloneSwiftUiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCloneSwiftUiApp.swift; sourceTree = "<group>"; };
 		B4BF53DF28F5528B0019ED81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B466831328FEA260003174DE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B466831428FEA279003174DE /* ImagePicker.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B4BF53D128F5528B0019ED81 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +122,7 @@
 		B4BF53DC28F5528B0019ED81 /* TwitterCloneSwiftUi */ = {
 			isa = PBXGroup;
 			children = (
+				B466831328FEA260003174DE /* Utilities */,
 				B4BF53F128F552F60019ED81 /* Model */,
 				B4BF53F028F552F40019ED81 /* Service */,
 				B4BF53ED28F552CE0019ED81 /* Core */,
@@ -155,6 +170,7 @@
 		B4BF53F028F552F40019ED81 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B498DEBA28FEC9C6001A5E2E /* ImageUploader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -366,6 +382,7 @@
 			children = (
 				B4C6BA3C28F890F000344499 /* LoginView.swift */,
 				B4C6BA3E28F8910600344499 /* RegistrationView.swift */,
+				B466831128FE8C3A003174DE /* ProfilePhotoSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,8 +480,10 @@
 			files = (
 				B4C6BA4328F9B9A400344499 /* CustomInputFields.swift in Sources */,
 				B4C6BA2D28F732EE00344499 /* SideViewVM.swift in Sources */,
+				B466831528FEA279003174DE /* ImagePicker.swift in Sources */,
 				B4BF540728F564E90019ED81 /* MessagesView.swift in Sources */,
 				B4C6BA1D28F579F400344499 /* ProfileView.swift in Sources */,
+				B498DEBB28FEC9C6001A5E2E /* ImageUploader.swift in Sources */,
 				B4BF53E028F5528B0019ED81 /* ContentView.swift in Sources */,
 				B4BF53FA28F557090019ED81 /* TweetRowView.swift in Sources */,
 				B4BF53F728F555680019ED81 /* FeedView.swift in Sources */,
@@ -483,6 +502,7 @@
 				B466831028FD429E003174DE /* AuthViewModel.swift in Sources */,
 				B4C6BA4628F9BE3800344499 /* AuthHeaderView.swift in Sources */,
 				B4C6BA2F28F7370700344499 /* UserStatsView.swift in Sources */,
+				B466831228FE8C3B003174DE /* ProfilePhotoSelectionView.swift in Sources */,
 				B4C6BA3F28F8910600344499 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,7 +645,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = su.andrerusso.TwitterCloneSwiftUi;
+				PRODUCT_BUNDLE_IDENTIFIER = su.andrerusso.TwitterCloneSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -654,7 +674,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = su.andrerusso.TwitterCloneSwiftUi;
+				PRODUCT_BUNDLE_IDENTIFIER = su.andrerusso.TwitterCloneSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
