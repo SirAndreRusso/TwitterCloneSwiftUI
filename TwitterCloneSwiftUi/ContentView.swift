@@ -15,6 +15,7 @@ struct ContentView: View {
         Group {
             // No user loged in
             if viewModel.userSession == nil {
+                
                 LoginView()
             } else {
                 // Have a loged in user
@@ -68,6 +69,15 @@ extension ContentView {
                             .resizable()
                             .scaledToFill()
                             .clipShape(Circle())
+                            .frame(width: 32, height: 32)
+                    }
+                } else {
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showMenu.toggle()
+                        }
+                    } label: {
+                        Circle()
                             .frame(width: 32, height: 32)
                     }
                 }

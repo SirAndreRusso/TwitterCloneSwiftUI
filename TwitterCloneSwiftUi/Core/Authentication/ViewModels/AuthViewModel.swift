@@ -18,6 +18,9 @@ class AuthViewModel: ObservableObject {
     init() {
         self.userSession = Auth.auth().currentUser
         self.fetchUser()
+        if currentUser == nil {
+            print("No user in session")
+        }
     }
     
     func login(withEmail email: String, password: String) {
@@ -28,7 +31,11 @@ class AuthViewModel: ObservableObject {
             }
             guard let user = result?.user else {return}
             self.userSession = user
+            
             print("Debug: did log user in")
+            DispatchQueue.main.async {
+                self.fetchUser()
+            }
         }
     }
     
@@ -65,23 +72,29 @@ class AuthViewModel: ObservableObject {
     
     func uploadProfileImage(_ image: UIImage) {
         guard let uid = tempUserSession?.uid else {return}
-        ImageUploader.uploadImage(image: image) { profileImageURL in
+        ImageUploader.uploadImage(image: image) {[weak self] profileImageURL in
+            guard let self else {return}
             Firestore.firestore().collection("users")
                 .document(uid)
-                .updateData(["ProfileImageURL" : profileImageURL]) { error in
+                .updateData(["profileImageURL" : profileImageURL]) { error in
                     guard error == nil else {
                         print("Debug: Can't update data with profileImageURL \(error!.localizedDescription)")
                         return
                     }
                     self.userSession = self.tempUserSession
+                    self.fetchUser()
                 }
         }
     }
     
     func fetchUser() {
-        guard let uid = self.userSession?.uid else {return}
+        guard let uid = self.userSession?.uid else {
+            print("No fetched user")
+            return
+        }
         service.fetchUser(withUid: uid) { user in
             self.currentUser = user
+            print(user.username)
         }
     }
 }

@@ -26,12 +26,13 @@ struct ProfileView: View {
             
             Spacer()
         }
+//        .navigationBarHidden(true)
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(user: User(username: "Name", fullname: "Full Name", profileImageURL: "", email: "qq@qq.ru"))
+        ProfileView(user: User(username: "Name", fullname: "Full Name", profileImageURL: "", uid: "123123123", email: "qq@qq.ru"))
     }
 }
 extension ProfileView {
@@ -50,7 +51,7 @@ extension ProfileView {
                         .resizable()
                         .frame(width: 20, height: 16)
                         .foregroundColor(.white)
-                        .offset(x: 16, y: -20)
+                        .offset(x: 16, y: -4)
                 }
 
                 KFImage(URL(string: user.profileImageURL))
@@ -143,11 +144,7 @@ extension ProfileView {
                         .foregroundColor(Color(.systemBlue))
                         .frame(height: 3)
                         .matchedGeometryEffect(id: "filter", in:   animation)
-                } else {
-                    Capsule()
-                        .foregroundColor(Color(.clear))
-                        .frame(height: 3)
-                }
+                } 
             }
                 .onTapGesture {
                     withAnimation(.easeInOut) {

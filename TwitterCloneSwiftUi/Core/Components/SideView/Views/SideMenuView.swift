@@ -55,6 +55,9 @@ struct SideMenuView: View {
             }
             .padding(.horizontal)
         }
+        else {
+            Text("No user")
+        }
     }
 }
 

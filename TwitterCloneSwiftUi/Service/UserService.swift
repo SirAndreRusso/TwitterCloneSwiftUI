@@ -14,8 +14,14 @@ struct UserService {
             .document(uid)
             .getDocument { snapshot, error in
                 guard let snapshot, error == nil else { return }
-                guard let user = try? snapshot.data(as: User.self) else {return}
-                completion(user)
+                guard let user = try? snapshot.data(as: User.self) else {
+                    print("can't parse the user")
+                    return
+                }
+                DispatchQueue.main.async {
+                    completion(user)
+                }
+                
             }
     }
 }
