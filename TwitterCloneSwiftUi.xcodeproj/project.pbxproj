@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42CFAAE290C5E87003C9754 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAAD290C5E87003C9754 /* ExploreViewModel.swift */; };
 		B457A367290A77C900FFE3C7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B457A366290A77C900FFE3C7 /* FirebaseAuth */; };
 		B457A369290A77C900FFE3C7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B457A368290A77C900FFE3C7 /* FirebaseFirestore */; };
 		B457A36B290A77C900FFE3C7 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B457A36A290A77C900FFE3C7 /* FirebaseFirestoreSwift-Beta */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B42CFAAD290C5E87003C9754 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		B457A371290BB89600FFE3C7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B457A376290BBDC700FFE3C7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B466830F28FD429E003174DE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		B4C6BA2028F719C700344499 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B42CFAAD290C5E87003C9754 /* ExploreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				B4BF53F728F555680019ED81 /* FeedView.swift in Sources */,
 				B4C6BA3828F8226B00344499 /* TextArea.swift in Sources */,
 				B4BF53DE28F5528B0019ED81 /* TwitterCloneSwiftUiApp.swift in Sources */,
+				B42CFAAE290C5E87003C9754 /* ExploreViewModel.swift in Sources */,
 				B4C6BA2928F7314500344499 /* SideMenuView.swift in Sources */,
 				B4C6BA3628F8206500344499 /* NewTweetView.swift in Sources */,
 				B4BF540328F5649D0019ED81 /* ExploreView.swift in Sources */,

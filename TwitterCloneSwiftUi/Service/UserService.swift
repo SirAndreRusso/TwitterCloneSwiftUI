@@ -21,7 +21,18 @@ struct UserService {
                 DispatchQueue.main.async {
                     completion(user)
                 }
+            }
+    }
+    
+    func fetchUsers(completion: @escaping ([User]) -> ()) {
+        Firestore.firestore().collection("users")
+            .getDocuments { snapshot, error in
+                guard let documents = snapshot?.documents, error == nil else { return }
+                let users = documents.compactMap({try? $0.data(as: User.self)})
                 
+                DispatchQueue.main.async {
+                    completion(users)
+                }
             }
     }
 }
