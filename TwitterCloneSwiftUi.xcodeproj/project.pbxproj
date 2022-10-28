@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B42CFAAE290C5E87003C9754 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAAD290C5E87003C9754 /* ExploreViewModel.swift */; };
+		B42CFAB0290C713D003C9754 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAAF290C713D003C9754 /* SearchBar.swift */; };
 		B457A367290A77C900FFE3C7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B457A366290A77C900FFE3C7 /* FirebaseAuth */; };
 		B457A369290A77C900FFE3C7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B457A368290A77C900FFE3C7 /* FirebaseFirestore */; };
 		B457A36B290A77C900FFE3C7 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B457A36A290A77C900FFE3C7 /* FirebaseFirestoreSwift-Beta */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		B42CFAAD290C5E87003C9754 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		B42CFAAF290C713D003C9754 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B457A371290BB89600FFE3C7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B457A376290BBDC700FFE3C7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B466830F28FD429E003174DE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				B4C6BA3728F8226B00344499 /* TextArea.swift */,
 				B4C6BA4028F894A900344499 /* RoundedShape.swift */,
 				B4C6BA4228F9B9A400344499 /* CustomInputFields.swift */,
+				B42CFAAF290C713D003C9754 /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				B4C6BA3628F8206500344499 /* NewTweetView.swift in Sources */,
 				B4BF540328F5649D0019ED81 /* ExploreView.swift in Sources */,
 				B4BF53FD28F561990019ED81 /* MainTabView.swift in Sources */,
+				B42CFAB0290C713D003C9754 /* SearchBar.swift in Sources */,
 				B4C6BA2428F71A3B00344499 /* UserRowView.swift in Sources */,
 				B4C6BA4128F894A900344499 /* RoundedShape.swift in Sources */,
 				B4C6BA1F28F68A0900344499 /* TweetFilterVM.swift in Sources */,
