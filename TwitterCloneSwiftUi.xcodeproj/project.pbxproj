@@ -13,6 +13,7 @@
 		B42CFAB4290DAF4E003C9754 /* UploadTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAB3290DAF4E003C9754 /* UploadTweetViewModel.swift */; };
 		B42CFAB6290E5EC0003C9754 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAB5290E5EC0003C9754 /* FeedViewModel.swift */; };
 		B42CFAB8290E6102003C9754 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAB7290E6102003C9754 /* Tweet.swift */; };
+		B42CFABA290E73D8003C9754 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CFAB9290E73D8003C9754 /* ProfileViewModel.swift */; };
 		B457A367290A77C900FFE3C7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B457A366290A77C900FFE3C7 /* FirebaseAuth */; };
 		B457A369290A77C900FFE3C7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B457A368290A77C900FFE3C7 /* FirebaseFirestore */; };
 		B457A36B290A77C900FFE3C7 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B457A36A290A77C900FFE3C7 /* FirebaseFirestoreSwift-Beta */; };
@@ -59,6 +60,7 @@
 		B42CFAB3290DAF4E003C9754 /* UploadTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetViewModel.swift; sourceTree = "<group>"; };
 		B42CFAB5290E5EC0003C9754 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		B42CFAB7290E6102003C9754 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		B42CFAB9290E73D8003C9754 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B457A371290BB89600FFE3C7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B457A376290BBDC700FFE3C7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B466830F28FD429E003174DE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				B4C6BA1E28F68A0900344499 /* TweetFilterVM.swift */,
+				B42CFAB9290E73D8003C9754 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				B4C6BA2F28F7370700344499 /* UserStatsView.swift in Sources */,
 				B466831228FE8C3B003174DE /* ProfilePhotoSelectionView.swift in Sources */,
 				B4C6BA3F28F8910600344499 /* RegistrationView.swift in Sources */,
+				B42CFABA290E73D8003C9754 /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
