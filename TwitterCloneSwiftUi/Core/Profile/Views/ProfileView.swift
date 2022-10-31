@@ -11,7 +11,7 @@ import Kingfisher
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationsMode
     @ObservedObject var profileViewModel: ProfileViewModel
-    @State private var selectionFilter: TweetFilterVM = .tweets
+    @State private var selectedFilter: TweetFilterVM = .tweets
     @Namespace var animation
     init(user: User) {
         self.profileViewModel = ProfileViewModel(user: user)
@@ -78,7 +78,7 @@ extension ProfileView {
             Button {
                 
             } label: {
-                Text("Edit profile")
+                Text(profileViewModel.actionButtonTitle)
                     .font(.subheadline)
                     .bold()
                     .foregroundColor(Color.black)
@@ -134,22 +134,26 @@ extension ProfileView {
     var tweetFilterBar: some View {
         HStack {
             ForEach(TweetFilterVM.allCases, id: \.rawValue) { item in
-                VStack {
+                VStack() {
                     Text(item.title)
                         .font(.subheadline)
-                        .fontWeight(selectionFilter == item ? .semibold : .regular)
-                        .foregroundColor(selectionFilter == item ? .black : .gray)
+                        .fontWeight(selectedFilter == item ? .semibold : .regular)
+                        .foregroundColor(selectedFilter == item ? .black : .gray)
                 
-                if selectionFilter == item {
+                if selectedFilter == item {
                     Capsule()
                         .foregroundColor(Color(.systemBlue))
                         .frame(height: 3)
                         .matchedGeometryEffect(id: "filter", in:   animation)
-                } 
+                } else {
+                    Capsule()
+                        .foregroundColor(Color(.clear))
+                        .frame(height: 3)
+                }
             }
                 .onTapGesture {
                     withAnimation(.easeInOut) {
-                        self.selectionFilter = item
+                        self.selectedFilter = item
                     }
                 }
             }
@@ -162,10 +166,9 @@ extension ProfileView {
     var tweetsView: some View {
         ScrollView {
             LazyVStack {
-                ForEach(profileViewModel.tweets) { tweet in
+                ForEach(profileViewModel.tweets(forFilter: self.selectedFilter)) { tweet in
                     TweetRowView(tweet: tweet)
                         .padding()
-                    
                 }
             }
         }

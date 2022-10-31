@@ -9,7 +9,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct UserService {
-    func fetchUser(withUid uid: String, completion: @escaping (User) -> ()) {
+    func fetchUser(withUid uid: String, completion: @escaping (User) -> Void) {
         Firestore.firestore().collection("users")
             .document(uid)
             .getDocument { snapshot, error in
@@ -24,7 +24,7 @@ struct UserService {
             }
     }
     
-    func fetchUsers(completion: @escaping ([User]) -> ()) {
+    func fetchUsers(completion: @escaping ([User]) -> Void) {
         Firestore.firestore().collection("users")
             .getDocuments { snapshot, error in
                 guard let documents = snapshot?.documents, error == nil else { return }

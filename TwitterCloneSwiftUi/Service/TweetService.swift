@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 struct TweetService {
-    func uploadTweet(caption: String, completion: @escaping (Bool) -> ()) {
+    func uploadTweet(caption: String, completion: @escaping (Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let data = ["uid": uid,
                     "caption": caption,
@@ -27,7 +27,7 @@ struct TweetService {
             }
     }
     
-    func fetchTweets(completion: @escaping ([Tweet]) -> ()) {
+    func fetchTweets(completion: @escaping ([Tweet]) -> Void) {
         Firestore.firestore().collection("tweets")
             .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, error in
@@ -39,7 +39,7 @@ struct TweetService {
             }
     }
     
-    func fetchTweets(forUid uid: String, completion: @escaping ([Tweet]) -> ()) {
+    func fetchTweets(forUid uid: String, completion: @escaping ([Tweet]) -> Void) {
         Firestore.firestore().collection("tweets")
             .whereField("uid", isEqualTo: uid)
             .getDocuments { snapshot, error in
@@ -51,3 +51,72 @@ struct TweetService {
             }
     }
 }
+
+//MARK: - Likes
+
+extension TweetService {
+    func likeTweet(tweet: Tweet, completion: @escaping () -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let tweetId = tweet.id else { return }
+        let userLikesRef = Firestore.firestore().collection("users")
+            .document(uid).collection("user-likes")
+        Firestore.firestore().collection("tweets").document(tweetId)
+            .updateData(["likes" : tweet.likes + 1]) { error in
+                guard error == nil else { return }
+                userLikesRef.document(tweetId).setData([:]) { error in
+                    completion()
+                }
+            }
+    }
+    
+    func unlikeTweet(_ tweet: Tweet, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let tweetId = tweet.id else { return }
+        guard tweet.likes > 0 else { return }
+        let userLikesRef = Firestore.firestore().collection("users")
+            .document(uid).collection("user-likes")
+        Firestore.firestore().collection("tweets").document(tweetId)
+            .updateData(["likes" : tweet.likes - 1]) { error in
+                guard error == nil else { return }
+                userLikesRef.document(tweetId).delete { error in
+                    guard error == nil else { return }
+                    completion()
+                }
+            }
+    }
+    
+    func checkIfUserLikedTweet(_ tweet: Tweet, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let tweetId = tweet.id else { return }
+        Firestore.firestore().collection("users")
+            .document(uid).collection("user-likes")
+            .document(tweetId).getDocument { snapshot, error in
+                guard error == nil, let snapshot = snapshot else { return }
+                completion(snapshot.exists)
+            }
+    }
+    
+    func fetchLikedTweets(forUid uid: String, completion: @escaping([Tweet]) -> Void) {
+        var tweets = [Tweet]()
+        Firestore.firestore().collection("users")
+            .document(uid).collection("user-likes")
+            .getDocuments { snapshot, error in
+                guard let documents = snapshot?.documents, error == nil else { return }
+                documents.forEach { doc in
+                    let tweetId = doc.documentID
+                    Firestore.firestore().collection("tweets")
+                        .document(tweetId)
+                        .getDocument { snapshot, error in
+                            guard error == nil else { return }
+                            guard let tweet = try? snapshot?.data(as: Tweet.self) else { return }
+                            tweets.append(tweet)
+                            completion(tweets)
+                        }
+                }
+            }
+        
+    }
+}
+
+
+
